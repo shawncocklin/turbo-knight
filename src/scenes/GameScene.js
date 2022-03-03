@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-import Player from './entities/Player'
+import Player from '../entities/Player'
 
 
 export default class GameScene extends Phaser.Scene {
@@ -19,7 +19,6 @@ export default class GameScene extends Phaser.Scene {
       .setOrigin(0)
       .setScale(4)
   }
-
 
   createPlayer(scene, x, y) {
     return new Player(scene, x, y)
