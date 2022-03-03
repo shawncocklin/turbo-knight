@@ -3,12 +3,12 @@ import Phaser from 'phaser'
 
 const useDebugger = true
 
-const WIDTH = 800
-const HEIGHT = 600
+const WIDTH = 1600 // 50 tiles wide
+const HEIGHT = document.body.offsetHeight
 
 const SHARED_CONFIG = {
   width: WIDTH,
-  height: document.body.offsetHeight,
+  height: HEIGHT,
 }
 
 // const Scenes = [Preload, GameScene]
