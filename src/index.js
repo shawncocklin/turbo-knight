@@ -1,7 +1,9 @@
 import Phaser from 'phaser'
+import Preload from './scenes/Preload'
+import GameScene from './scenes/GameScene'
 
 
-const useDebugger = true
+const useDebugger = false
 
 const WIDTH = 1600 // 50 tiles wide
 const HEIGHT = document.body.offsetHeight
@@ -11,9 +13,9 @@ const SHARED_CONFIG = {
   height: HEIGHT,
 }
 
-// const Scenes = [Preload, GameScene]
+const Scenes = [Preload, GameScene]
 
-// const initScenes = () => Scenes.map(Scene => new Scene(SHARED_CONFIG))
+const initScenes = () => Scenes.map(Scene => new Scene(SHARED_CONFIG))
 
 const config = {
   ...SHARED_CONFIG,
@@ -26,7 +28,7 @@ const config = {
       debug: useDebugger
     }
   },
-  // scene: initScenes()
+  scene: initScenes()
 }
 
 
