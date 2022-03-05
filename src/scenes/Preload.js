@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 
-import player from '../../assets/TurboKnightWalkCycle.png'
+import player from '../../assets/TurboKnightSheet.png'
 import bg from '../../assets/background01.png'
 
 

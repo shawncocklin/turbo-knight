@@ -11,7 +11,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     scene.physics.add.existing(this)
 
     // how fast the player falls
-    this.playerGravity = 1000
+    this.playerGravity = 1000 
     // how fast the player moves horizontally
     this.speedX = 200
     // how fast the player ascends against the gravity
@@ -69,7 +69,9 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
     else {
       this.setVelocityX(0)
-      this.play('idle', true)
+      if(onFloor) {
+        this.play('idle', true)
+      }
     }
   }
 
@@ -77,9 +79,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     const {space} = this.playerInput
     const spaceDown = Phaser.Input.Keyboard.JustDown(space)
     if(spaceDown) {
+      this.stop('idle').play('fly', true)
       this.setVelocityY(this.speedY)
-      // TODO: add the fly animation to replace idle
-      this.stop('run').play('idle', true)
     }
   }
 }
