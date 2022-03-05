@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 
-import player from '../../assets/BlockKnight.png'
+import player from '../../assets/turboknightEquiped.png'
 import bg from '../../assets/background01.png'
 
 
