@@ -3,7 +3,7 @@ import Preload from './scenes/Preload'
 import GameScene from './scenes/GameScene'
 
 
-const useDebugger = false
+const useDebugger = true
 
 const WIDTH = 1600 // 50 tiles wide
 const HEIGHT = document.body.offsetHeight

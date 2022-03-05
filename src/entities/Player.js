@@ -1,4 +1,5 @@
 import Phaser from 'phaser'
+import anims from './PlayerAnimations'
 
 
 export default class Player extends Phaser.Physics.Arcade.Sprite {
@@ -36,6 +37,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
       .setCollideWorldBounds(true)
       .setScale(3)
       .setOrigin(0.5,1)
+    anims(this.scene.anims)
   }
 
   initEvents() {
@@ -50,16 +52,24 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
   playerMove() {
     const {left, right} = this.playerInput
+    const onFloor = this.body.onFloor()
     if(left.isDown) {
       this.flipX = true
       this.setVelocityX(-this.speedX)
+      if(onFloor) {
+        this.play('run', true)
+      }
     }
     else if(right.isDown) {
       this.flipX = false
       this.setVelocityX(this.speedX)
+      if(onFloor) {
+        this.play('run', true)
+      }
     }
     else {
       this.setVelocityX(0)
+      this.play('idle', true)
     }
   }
 
@@ -68,6 +78,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     const spaceDown = Phaser.Input.Keyboard.JustDown(space)
     if(spaceDown) {
       this.setVelocityY(this.speedY)
+      // TODO: add the fly animation to replace idle
+      this.stop('run').play('idle', true)
     }
   }
 }

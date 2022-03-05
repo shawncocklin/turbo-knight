@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 
-import player from '../../assets/turboknightEquiped.png'
+import player from '../../assets/TurboKnightWalkCycle.png'
 import bg from '../../assets/background01.png'
 
 
@@ -10,7 +10,10 @@ export default class Preload extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('player', player)
+    this.load.spritesheet('player', player, {
+      frameWidth: 16,
+      frameHeight: 16,
+    })
     this.load.image('background', bg)
   }
 
